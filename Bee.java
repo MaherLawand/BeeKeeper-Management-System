@@ -1,14 +1,12 @@
 
-public class Bee {
-	private String TypeOfBee;
-	private int EfficiencyOfBee;
-	private int LifeSpan;
-	private int EstimatesNbOfBees;
+public class Bee extends GeneralBees {
+	public GeneralBees next;
 	public Bee() {
 		TypeOfBee="";
 		EfficiencyOfBee=0;
 		LifeSpan=0;
 		EstimatesNbOfBees=0;
+		next=null;
 	}
 	public Bee(String typeOfBee, int efficiencyOfBee, int lifeSpan, int estimatesNbOfBees) {
 		super();
@@ -16,7 +14,7 @@ public class Bee {
 		EfficiencyOfBee = efficiencyOfBee;
 		LifeSpan = lifeSpan;
 		EstimatesNbOfBees = estimatesNbOfBees;
-		int dick size = 1;
+		next=null;
 	}
 	public String getTypeOfBee() {
 		return TypeOfBee;
@@ -41,6 +39,9 @@ public class Bee {
 	}
 	public void setEstimatesNbOfBees(int estimatesNbOfBees) {
 		EstimatesNbOfBees = estimatesNbOfBees;
+	}
+	public void display() {
+		System.out.println(Bee.this);
 	}
 
 	

@@ -1,26 +1,25 @@
 
-public class QueenBee {
-	private String TypeOfQueenBee;
-	private int EggLayingRate;
-	private int LifeSpan;
-	private String MedicalHealth;
+public class QueenBee extends GeneralBees{
+	public GeneralBees next;
 	public QueenBee() {
-		TypeOfQueenBee="";
+		TypeOfQueenBee=false;
 		EggLayingRate=0;
 		LifeSpan=0;
 		MedicalHealth="";
+		next=null;
 	}
-	public QueenBee(String typeOfQueenBee, int eggLayingRate, int lifeSpan, String medicalHealth) {
+	public QueenBee(boolean typeOfQueenBee, int eggLayingRate, int lifeSpan, String medicalHealth) {
 		super();
 		TypeOfQueenBee = typeOfQueenBee;
 		EggLayingRate = eggLayingRate;
 		LifeSpan = lifeSpan;
 		MedicalHealth = medicalHealth;
+		next=null;
 	}
-	public String getTypeOfQueenBee() {
+	public boolean getTypeOfQueenBee() {
 		return TypeOfQueenBee;
 	}
-	public void setTypeOfQueenBee(String typeOfQueenBee) {
+	public void setTypeOfQueenBee(boolean typeOfQueenBee) {
 		TypeOfQueenBee = typeOfQueenBee;
 	}
 	public int getEggLayingRate() {
@@ -40,6 +39,9 @@ public class QueenBee {
 	}
 	public void setMedicalHealth(String medicalHealth) {
 		MedicalHealth = medicalHealth;
+	}
+	public void display() {
+		System.out.println(QueenBee.this);
 	}
 	
 }
