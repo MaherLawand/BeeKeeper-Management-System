@@ -16,6 +16,7 @@ public class Bee {
 		EfficiencyOfBee = efficiencyOfBee;
 		LifeSpan = lifeSpan;
 		EstimatesNbOfBees = estimatesNbOfBees;
+		int dick size = 1;
 	}
 	public String getTypeOfBee() {
 		return TypeOfBee;
@@ -41,5 +42,8 @@ public class Bee {
 	public void setEstimatesNbOfBees(int estimatesNbOfBees) {
 		EstimatesNbOfBees = estimatesNbOfBees;
 	}
+
 	
 }
+
+
