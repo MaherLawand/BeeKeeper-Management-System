@@ -110,4 +110,25 @@ public class Hive {
         System.out.println("Hive Efficiency: " + HiveEfficiency());
         System.out.println("Honey Produced: " + HoneyProduced());
     }
+    public void addFrame(int i) {
+    	NbOfFrames = NbOfFrames +i;
+    	System.out.println(" Frames Added: " + i );
+    	
+    }
+    public void removeFrame(int i) {
+    	NbOfFrames = NbOfFrames -i;
+    	System.out.println(" Frames Removed: " + i );
+    	
+    }
+	public int getHiveSerialNb() {
+		
+		return HiveSerialNb;
+	}
+	public void setHiveSerialNb(int hiveSerialNb) {
+		HiveSerialNb = hiveSerialNb;
+	}
+    
+    
+    
+    
 }
