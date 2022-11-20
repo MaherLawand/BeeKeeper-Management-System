@@ -83,20 +83,16 @@ public class Sales {
 	
 	
 	
-public double NetProfit() {
-		
-		
+	public double NetProfit() {	
 		double profit =getRevenue() - TotalCost();
-		return profit;
-		
+		return profit;		
 	}
+
 	public double TotalCost() {
 		double sum = 150*getHivesBought()+ 1*getJarsBought()+75*getFoodBought()+25*getDrugsBought()+getOperatingExpenses()+getOther();
-		return sum;
-		
-		
-		
+		return sum;	
 	}
+
 	public int HighestExpense() {
 		int[] a = {150*getHivesBought() ,1*getJarsBought(),75*getFoodBought(),25*getDrugsBought(),getOperatingExpenses(),getOther()};
 		int max = a[0];
@@ -107,47 +103,39 @@ public double NetProfit() {
 				q=i;
 			}
 		}
-			if(q==0) {
-				System.out.println("The Highest expense is hives built : " +max +"$");
+		if(q==0) {
+			System.out.println("The Highest expense is hives built : " +max +"$");
 				
-			}
-			else if(q==1) {
-				System.out.println("The Highest expense is jars bought : " +max +"$");
+		}
+		else if(q==1) {
+			System.out.println("The Highest expense is jars bought : " +max +"$");
 				
-			}
-			else if(q==2) {
-				System.out.println("The Highest expense is food bought : " +max +"$");
-				
-			
-			}
-			else if(q==3) {
-				System.out.println("The Highest expense is Drugs bought : " +max +"$");
+		}
+		else if(q==2) {
+			System.out.println("The Highest expense is food bought : " +max +"$");
 				
 			
-			}
-			else if(q==4) {
-				System.out.println("The Highest expense is Operating the business : " +max +"$");
-				
-			
-			}
-			else if(q==5) {
-				System.out.println("The Highest expense is Miscellaneous Fees : " +max +"$");
-				
-			
-			}
-		
+		}
+		else if(q==3) {
+			System.out.println("The Highest expense is Drugs bought : " +max +"$");
+		}
+		else if(q==4) {
+			System.out.println("The Highest expense is Operating the business : " +max +"$");
+		}
+		else if(q==5) {
+			System.out.println("The Highest expense is Miscellaneous Fees : " +max +"$");
+		}
 		
 		return max;
 		
 	}
+
 	public int JarsSold() {
-		return getRevenue()/5;
-		
+		return getRevenue()/5;		
 	}
-	public double HoneyProduced(){
-		
-		return JarsSold()*0.25;
-		
+
+	public double HoneyProduced(){		
+		return JarsSold()*0.25;		
 	}
 	
 }
