@@ -4,8 +4,8 @@ public class Stock {
 	private Date DateLogged;
 	private int TotalNbOfJars;
 	private int JarsFilledWithHoney;
-	private int FoodInStock;
-	private int DrugsInStock;
+	private int FoodUsed;
+	private int DrugsUsed;
 	public Date getDateLogged() {
 		return DateLogged;
 	}
@@ -14,16 +14,16 @@ public class Stock {
 		DateLogged =null;
 		TotalNbOfJars = 0;
 		JarsFilledWithHoney = 0;
-		FoodInStock = 0;
-		DrugsInStock = 0;
+		FoodUsed = 0;
+		DrugsUsed = 0;
 	}
 	public Stock(Date dateLogged, int totalNbOfJars, int jarsFilledWithHoney, int foodInStock, int drugsInStock) {
 		super();
 		DateLogged = dateLogged;
 		TotalNbOfJars = totalNbOfJars;
 		JarsFilledWithHoney = jarsFilledWithHoney;
-		FoodInStock = foodInStock;
-		DrugsInStock = drugsInStock;
+		FoodUsed = foodInStock;
+		DrugsUsed = drugsInStock;
 	}
 	public void setDateLogged(Date dateLogged) {
 		DateLogged = dateLogged;
@@ -40,34 +40,42 @@ public class Stock {
 	public void setJarsFilledWithHoney(int jarsFilledWithHoney) {
 		JarsFilledWithHoney = jarsFilledWithHoney;
 	}
-	public int getFoodInStock() {
-		return FoodInStock;
+	public int getFoodUsed() {
+		return FoodUsed;
 	}
-	public void setFoodInStock(int foodInStock) {
-		FoodInStock = foodInStock;
+	public void setFoodUsed(int foodInStock) {
+		FoodUsed = foodInStock;
 	}
-	public int getDrugsInStock() {
-		return DrugsInStock;
+	public int getDrugsUsed() {
+		return DrugsUsed;
 	}
-	public void setDrugsInStock(int drugsInStock) {
-		DrugsInStock = drugsInStock;
+	public void setDrugsUsed(int drugsInStock) {
+		DrugsUsed = drugsInStock;
 	}
-	public void HoneyInStock() {
-		
+	public void HoneyInStock() {		
+		 System.out.println(getJarsFilledWithHoney()*0.25 + " L");
 	}
 	public int NbOfEmptyJars() {
+		return getTotalNbOfJars()-getJarsFilledWithHoney();
+	}
+	public void FoodInStock(int n) {
+		// in main n = sales.getFoodBought
+		System.out.print(n-getFoodUsed());
+	}
+	public void DrugsInStock(int n) {
+		System.out.print(n-getDrugsUsed());
+	}
+	public int JarsUsed() {
+		return JarsFilledWithHoney;
 		
 	}
-	public void FoodUsed(int n) {
-		
-	}
-	public void DrugsUsed(int n) {
-		
-	}
-	public void JarsUsed(int n) {
-		
-	}
-	public Stock DisplayStock() {
-		
+	public void DisplayStock(int m , int n) {
+		System.out.println("On " + getDateLogged() + ": \n In Stock: " + getTotalNbOfJars() + " jars \n" + getJarsFilledWithHoney() + " jars filled with honey \n" + getFoodUsed() + " Food used \n" + getDrugsUsed() + " Drugs Used \n" + JarsUsed() + " Jars Used \n" + NbOfEmptyJars() + " empty jars");
+		FoodInStock(n);
+		System.out.println(" Food in Stock");
+		DrugsInStock(m);
+		System.out.println(" Drugs in Stock");
+		HoneyInStock();
+	
 	}
 }
