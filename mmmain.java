@@ -37,18 +37,23 @@ Customers s1 = new Customers("Maher","Lawand","maher.lawand9@gmail.com","test",7
 Customers s3 = new Customers("arij","fg","fds@gmail.com","sd",546546);
 Customers s4 = new Customers("arij","fg","fdgs@gmail.com","sd",546546);
 
+
 all.addCustomer(s1);
 all.addCustomer(s3);
 all.addCustomer(s4);
-all.banCustomer(s4);
 
-Customers email=all.SearchCustomerbyEmail("mdfs9@gmail.com");
+
+
+Customers email=all.SearchCustomerbyEmail("maher.lawand9@gmail.com");
 if(email!=null){
-    System.out.println(email.getEmail());
+    System.out.println(email.getEmail()+ "  Found ! ");
+    
 }else{
-    System.out.println("null");
+    System.out.println("Not Found !");
 }
 all.ListBannedCustomers();
+all.ListCustomers();
+
 
     }
 }
