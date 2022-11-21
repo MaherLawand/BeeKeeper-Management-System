@@ -1,0 +1,14 @@
+2022-11-21 18:05:31,239 [Worker-1: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2022-11-21 18:22:22,630 [Worker-2: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2022-11-21 18:23:02,113 [Start Help Server] INFO  org.eclipse.jetty.util.log - Logging initialized @53569ms to org.eclipse.jetty.util.log.Slf4jLog
+2022-11-21 18:23:02,324 [Start Help Server] INFO  org.eclipse.jetty.server.Server - jetty-9.4.31.v20200723; built: 2020-08-03T13:24:06.825Z; git: 450ba27947e13e66baa8cd1ce7e85a4461cacc1d; jvm 14+36-1461
+2022-11-21 18:23:02,347 [Start Help Server] INFO  org.eclipse.jetty.server.session - DefaultSessionIdManager workerName=node0
+2022-11-21 18:23:02,348 [Start Help Server] INFO  org.eclipse.jetty.server.session - No SessionScavenger set, using defaults
+2022-11-21 18:23:02,350 [Start Help Server] INFO  org.eclipse.jetty.server.session - node0 Scavenging every 600000ms
+2022-11-21 18:23:02,388 [Start Help Server] INFO  o.e.j.server.handler.ContextHandler - Started o.e.j.s.ServletContextHandler@3735c46e{/help,null,AVAILABLE}
+2022-11-21 18:23:02,409 [Start Help Server] INFO  o.e.jetty.server.AbstractConnector - Started ServerConnector@74444009{HTTP/1.1, (http/1.1)}{127.0.0.1:61401}
+2022-11-21 18:23:02,410 [Start Help Server] INFO  org.eclipse.jetty.server.Server - Started @53868ms
+2022-11-21 18:23:02,410 [Start Help Server] INFO  org.eclipse.jetty.server.session - node0 Scavenging every 660000ms
+2022-11-21 18:56:28,279 [Stop Help Server] INFO  o.e.jetty.server.AbstractConnector - Stopped ServerConnector@74444009{HTTP/1.1, (http/1.1)}{127.0.0.1:0}
+2022-11-21 18:56:28,280 [Stop Help Server] INFO  org.eclipse.jetty.server.session - node0 Stopped scavenging
+2022-11-21 18:56:28,298 [Stop Help Server] INFO  o.e.j.server.handler.ContextHandler - Stopped o.e.j.s.ServletContextHandler@3735c46e{/help,null,UNAVAILABLE}
