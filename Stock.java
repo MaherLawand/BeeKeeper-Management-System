@@ -1,6 +1,6 @@
 import java.sql.Date;
 
-public class Stock {
+public class Stock extends BeeKeeper{
 	private Date DateLogged;
 	private int TotalNbOfJars;
 	private int JarsFilledWithHoney;

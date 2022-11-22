@@ -1,5 +1,5 @@
 
-public class Sales {
+public class Sales extends BeeKeeper{
 	private String Season;
 	private int Revenue;
 	private int HivesBought;

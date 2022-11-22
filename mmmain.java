@@ -1,3 +1,5 @@
+import java.util.HashSet;
+
 public class mmmain {
     public static void main(String[] args){
 //        Hive h = new Hive(50,1,123, 2,true,false);
@@ -32,23 +34,36 @@ public class mmmain {
         
 //     }
 // }
+
+Users allUsers = new Users();
+String email="maher.lawand9@gmail.com";
+String pass="fddf";
+BeeKeeper B = new BeeKeeper();
+allUsers.Register(email, pass, B);
+Users signedin = allUsers.Login(email, pass);
+
+Hive h = new Hive(500, 1120,10, 20, false, false);
+B.addHiveToBeekeeperUser(h);
+
+Stock st = new Stock(null, 43, 34, 53, 50);
+B.addStockToBeekeeperUser(st);
+
+Sales s = new Sales(pass, 1000, 200, 500, 400, 20, 8000, 0);
+B.addSalesToBeekeeperUser(s);
+
 Customers all = new Customers();
-Customers s1 = new Customers("Maher","Lawand","maher.lawand9@gmail.com","test",70300981);
-Customers s3 = new Customers("arij","fg","fds@gmail.com","sd",546546);
-Customers s4 = new Customers("arij","fg","fdgs@gmail.com","sd",546546);
-
+Customers s1 = new Customers("Maher","Lawand","maher.lawand@gmail.com","test1",70300981);
+Customers s2 = new Customers("Hadi","Youness","fds@gmail.com","test2",546546);
 all.addCustomer(s1);
-all.addCustomer(s3);
-all.addCustomer(s4);
-all.banCustomer(s4);
+all.addCustomer(s2);
+B.addCustomersToBeekeeperUser(all);
 
-Customers email=all.SearchCustomerbyEmail("mdfs9@gmail.com");
-if(email!=null){
-    System.out.println(email.getEmail());
-}else{
-    System.out.println("null");
-}
-all.ListBannedCustomers();
+Customers test= signedin.getBeeKeeper().s.SearchCustomerbyEmail("fds@gmail.com");
+System.out.println(test.getFName());
 
+String email2 = "maher.lawand9@gmail.com";
+String pass2 = "fddf";
+BeeKeeper B2 = new BeeKeeper();
+allUsers.Register(email2, pass2, B2);
     }
 }

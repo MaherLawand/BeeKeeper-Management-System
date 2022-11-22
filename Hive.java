@@ -1,4 +1,4 @@
-public class Hive {
+public class Hive extends BeeKeeper {
     GeneralBees First;
     private int Size;
     private int HiveSerialNb;

@@ -1,11 +1,10 @@
 import java.util.Arrays;
 import java.util.HashSet;
-import java.util.Iterator;
 import java.util.Comparator;
 
-public class Customers {
+public class Customers extends BeeKeeper{
 	HashSet <Customers> ActiveCustomers = new HashSet<Customers>();
-	HashSet <Customers> BannedCustomers = new HashSet<Customers>();
+	HashSet <Customers> BannedCustomers = new HashSet<Customers>();	
 	private String FName;
 	private String LName;
 	private String email;
@@ -126,6 +125,7 @@ public class Customers {
 			
 		}
 	}
+
 
 
 	
