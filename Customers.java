@@ -1,10 +1,10 @@
 import java.util.Arrays;
-import java.util.HashSet;
 import java.util.Comparator;
+import java.util.HashMap;
 
 public class Customers extends BeeKeeper{
-	HashSet <Customers> ActiveCustomers = new HashSet<Customers>();
-	HashSet <Customers> BannedCustomers = new HashSet<Customers>();	
+	HashMap <String,Customers> ActiveCustomers = new HashMap();
+	HashMap <String,Customers> BannedCustomers = new HashMap();
 	private String FName;
 	private String LName;
 	private String email;
@@ -56,21 +56,22 @@ public class Customers extends BeeKeeper{
 		this.address = address;
 		PhoneNumber = phoneNumber;
 	}
-	public void addCustomer(Customers s) {
-		if(ActiveCustomers.contains(s)){
+	public void addCustomer(Customers s,String email) {
+		if(ActiveCustomers.keySet().contains(email)){
 			System.out.println("Already Registered!");
-		}else if(BannedCustomers.contains(s)){
+		}else if(BannedCustomers.keySet().contains(email)){
 			System.out.println("Customer Banned!");
 		}else{
-			ActiveCustomers.add(s);
+			ActiveCustomers.put(email, s);
 		}
 	}
-	public Customers banCustomer(Customers s) {
-		Customers banned=s;
-		if(!BannedCustomers.contains(s) && ActiveCustomers.contains(s)){
-			BannedCustomers.add(s);
-			ActiveCustomers.remove(s);
-		}else if(!ActiveCustomers.contains(s)){
+	public Customers banCustomer(Customers s,String email) {
+		Customers banned=null;
+		if(!BannedCustomers.keySet().contains(email) && ActiveCustomers.keySet().contains(email)){
+			BannedCustomers.put(email, s);
+			banned=s;
+			ActiveCustomers.remove(email, s);
+		}else if(!ActiveCustomers.keySet().contains(email)){
 			System.out.println("Customer Doesnt Exist!");
 		}else{
 			System.out.println("Customer Already Banned!");
@@ -78,7 +79,7 @@ public class Customers extends BeeKeeper{
 		return banned;
 	}
 	public Customers SearchCustomerbyEmail(String email) {
-		Customers[] customers = ActiveCustomers.toArray(new Customers[ActiveCustomers.size()]);
+		Customers[] customers = ActiveCustomers.values().toArray(new Customers[ActiveCustomers.size()]);
 		// for(int i=0;i<customers.length;i++){
 		// 	System.out.println(customers[i].email);
 		// }
@@ -104,7 +105,7 @@ public class Customers extends BeeKeeper{
 }
 	
 	public void ListCustomers() {
-		for (Customers s : ActiveCustomers) {
+		for (Customers s : ActiveCustomers.values()) {
 			System.out.println("First Name: " + s.getFName());
 			System.out.println("Last Name: " + s.getLName());
 			System.out.println("Email: " + s.getEmail());
@@ -115,7 +116,7 @@ public class Customers extends BeeKeeper{
 		}
 	}
 	public void ListBannedCustomers() {
-		for (Customers s : BannedCustomers) {
+		for (Customers s : BannedCustomers.values()) {
 			System.out.println("First Name: " + s.getFName());
 			System.out.println("Last Name: " + s.getLName());
 			System.out.println("Email: " + s.getEmail());

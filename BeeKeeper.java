@@ -1,13 +1,13 @@
 import java.util.ArrayList;
 
 public class BeeKeeper {
-	ArrayList<Hive> hives = new ArrayList<Hive>();
+	Apiary a;
 	ArrayList<Stock> stock = new ArrayList<Stock>();
 	ArrayList<Sales> sales = new ArrayList<Sales>();
 	Customers s;
     //Customers
-    public void addHiveToBeekeeperUser(Hive h){
-		hives.add(h);
+    public void addApiaryToBeekeeperUser(Apiary A){
+		a=A;
 	}
     public void addStockToBeekeeperUser(Stock st){
 		stock.add(st);
