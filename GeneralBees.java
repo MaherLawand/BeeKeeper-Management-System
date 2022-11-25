@@ -1,4 +1,6 @@
-public class GeneralBees {
+import java.io.Serializable;
+
+public class GeneralBees implements Serializable {
     protected boolean TypeOfQueenBee;
 	protected int EggLayingRate;
 	protected String MedicalHealth;

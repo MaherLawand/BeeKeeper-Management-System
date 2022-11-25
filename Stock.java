@@ -1,6 +1,7 @@
+import java.io.Serializable;
 import java.sql.Date;
 
-public class Stock extends BeeKeeper{
+public class Stock extends BeeKeeper implements Serializable{
 	private Date DateLogged;
 	private int TotalNbOfJars;
 	private int JarsFilledWithHoney;

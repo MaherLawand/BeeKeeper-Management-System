@@ -1,22 +1,20 @@
+import java.io.Serializable;
 import java.util.ArrayList;
-public class Apiary {
+public class Apiary implements Serializable{
 	ArrayList<Hive> Apiaryone=new ArrayList<Hive>(); 
 	String ApiaryName ;
 	int ApiarySerialNB;
-	double Coordinates;
 	String Location;
 
 	public Apiary() {
 		ApiaryName="";
 		ApiarySerialNB=0;
-		Coordinates=0.0;
 		Location="";
 	}
 
-	public Apiary(String apiaryName, int apiarySerialNB, double coordinates, String location) {
+	public Apiary(String apiaryName, int apiarySerialNB, String location) {
 		ApiaryName = apiaryName;
 		ApiarySerialNB = apiarySerialNB;
-		Coordinates = coordinates;
 		Location = location;
 		
 	}
@@ -37,14 +35,6 @@ public class Apiary {
 		ApiarySerialNB = apiarySerialNB;
 	}
 
-	public double getCoordinates() {
-		return Coordinates;
-	}
-
-	public void setCoordinates(int coordinates) {
-		Coordinates = coordinates;
-	}
-
 	public String getLocation() {
 		return Location;
 	}
@@ -56,16 +46,20 @@ public class Apiary {
 	public void addHiveToApiary(Hive l) {	
 		Apiaryone.add(l);
 	}
-	
+	public boolean isEmpty(){
+		return Apiaryone.size()==0;
+	}
    public void ListHivesInApiary() {
 	   for (int i = 0; i < Apiaryone.size();i++) 
 	      { 		      
-	        System.out.println("Hive Serial Number : "+ Apiaryone.get(i).getHiveSerialNb());  
+	        Apiaryone.get(i).HiveStatus();
+			System.out.println("-----------------"); 
 	      }   
    }
 	
    public void removeHivefromApiary(Hive l) {
 		Apiaryone.remove(l);
+		return;
    }
 
     public void removeHiveBYSerialNBfromApiary(int l) {
@@ -77,15 +71,14 @@ public class Apiary {
 	   }  
     }
 
-   public boolean FindHiveBYSerialNBfromApiary(int l) {
-	   boolean check=false;
+   public Hive FindHiveBYSerialNBfromApiary(int l) {
 	   for (int i = 0; i < Apiaryone.size();i++) 
 	      { 		      
 		 if(  Apiaryone.get(i).getHiveSerialNb() == l ) {
-			 check=true;		 
+			 return Apiaryone.get(i)	; 
 		 }
 	      }
-	   return check;
+	   return null;
  	}
 
 	public void  sortHivesInApiaryByQueenStatus() {
@@ -103,6 +96,11 @@ public class Apiary {
 		 }
 	}	
 	      }
+	}
+	public void ApiaryStatus(){
+		System.out.println("Apiary: " + getApiarySerialNB());
+		System.out.println("Name: " + getApiaryName());
+		System.out.println("Location: "+ getLocation());
 	}
 	
 	

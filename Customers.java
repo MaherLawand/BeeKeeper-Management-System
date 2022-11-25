@@ -1,8 +1,9 @@
+import java.io.Serializable;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.HashMap;
 
-public class Customers extends BeeKeeper{
+public class Customers extends BeeKeeper implements Serializable{
 	HashMap <String,Customers> ActiveCustomers = new HashMap();
 	HashMap <String,Customers> BannedCustomers = new HashMap();
 	private String FName;

@@ -1,4 +1,6 @@
-public class Hive extends BeeKeeper {
+import java.io.Serializable;
+
+public class Hive extends BeeKeeper implements Serializable{
     GeneralBees First;
     private int Size;
     private int HiveSerialNb;
@@ -16,6 +18,36 @@ public class Hive extends BeeKeeper {
         Food=false;
         Drugs=false;
     }
+    public int getSize() {
+        return Size;
+    }
+    public void setSize(int size) {
+        Size = size;
+    }
+    public int getMedicalCondition() {
+        return MedicalCondition;
+    }
+    public void setMedicalCondition(int medicalCondition) {
+        MedicalCondition = medicalCondition;
+    }
+    public int getNbOfFrames() {
+        return NbOfFrames;
+    }
+    public void setNbOfFrames(int nbOfFrames) {
+        NbOfFrames = nbOfFrames;
+    }
+    public boolean isFood() {
+        return Food;
+    }
+    public void setFood(boolean food) {
+        Food = food;
+    }
+    public boolean isDrugs() {
+        return Drugs;
+    }
+    public void setDrugs(boolean drugs) {
+        Drugs = drugs;
+    }
     public Hive(int Size,int HiveSerialNb, int MedicalCondition, int NbOfFrames,boolean Food,boolean Drugs){
     	First=null;
         this.Size=Size;
@@ -25,10 +57,15 @@ public class Hive extends BeeKeeper {
         this.Food=Food;
         this.Drugs=Drugs;
     }
-    public void addBee(String typeOfBee, int efficiencyOfBee, int lifeSpan, int estimatesNbOfBees){
-        GeneralBees bee=new Bee(typeOfBee,efficiencyOfBee,lifeSpan,estimatesNbOfBees);
+    public GeneralBees getFirst() {
+        return First;
+    }
+    public void setFirst(GeneralBees first) {
+        First = first;
+    }
+    public void addBee(GeneralBees bee){
         double Percent=0.0;
-        Percent=((estimatesNbOfBees*0.23)/Size)*100;
+        Percent=((bee.EstimatesNbOfBees*0.23)/Size)*100;
         if(PercentageOfHiveFilled()+Percent<=100) {
         GeneralBees current=First;
         if(First==null){
@@ -50,16 +87,14 @@ public class Hive extends BeeKeeper {
     public boolean isQueenBeeExist(){
         return First.TypeOfQueenBee;
     }
-    public void addQueenBee(boolean typeOfQueenBee, int eggLayingRate, int lifeSpan, String medicalHealth){
-        GeneralBees bee=new QueenBee(typeOfQueenBee,eggLayingRate,lifeSpan,medicalHealth);
+    public void addQueenBee(GeneralBees bee){
         if(isEmpty()) {
         	First=bee;
         }else if(isQueenBeeExist()) {
         	System.out.println("Queen Bee Already exists! Please Use ChangeQueenBee Method!");
         }
     }
-    public void ChangeQueenBee(boolean typeOfQueenBee, int eggLayingRate, int lifeSpan, String medicalHealth) {
-    	 GeneralBees bee=new QueenBee(typeOfQueenBee,eggLayingRate,lifeSpan,medicalHealth);
+    public void ChangeQueenBee(GeneralBees bee) {
     	 bee.next=First.next;
     	 First=bee;
     }
@@ -95,6 +130,15 @@ public class Hive extends BeeKeeper {
     	return Honey;	
     }
     public void HiveStatus(){
+        System.out.println("Hive: " + getHiveSerialNb());
+        System.out.println("Size: " + getSize());
+        System.out.println("Medical Condition: " + getMedicalCondition());
+        System.out.println("Number Of Frames: " + getNbOfFrames());
+        System.out.println("Fed: " + isFood());
+        System.out.println("Drugged: " + isDrugs());
+        System.out.println("Percentage of Hive Filled: " + PercentageOfHiveFilled());
+        System.out.println("Hive Efficiency: " + HiveEfficiency());
+        System.out.println("Honey Produced: " + HoneyProduced());
         GeneralBees BeeCurrent=First;
         while(BeeCurrent!=null){
         	if(BeeCurrent.TypeOfQueenBee) {
@@ -106,9 +150,7 @@ public class Hive extends BeeKeeper {
         	}
             BeeCurrent=BeeCurrent.next;         
         }
-        System.out.println("Percentage of Hive Filled: " + PercentageOfHiveFilled());
-        System.out.println("Hive Efficiency: " + HiveEfficiency());
-        System.out.println("Honey Produced: " + HoneyProduced());
+        
     }
     public void addFrame(int i) {
     	NbOfFrames = NbOfFrames +i;

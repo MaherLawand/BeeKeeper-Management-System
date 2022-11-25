@@ -1,5 +1,9 @@
+import java.io.Serializable;
+import java.sql.Date;
+import java.time.LocalDateTime;
 
-public class Sales extends BeeKeeper{
+public class Sales extends BeeKeeper implements Serializable{
+	private LocalDateTime DateLogged;
 	private String Season;
 	private int Revenue;
 	private int HivesBought;
@@ -10,6 +14,7 @@ public class Sales extends BeeKeeper{
 	private int Other;
 	public Sales() {
 		super();
+		DateLogged =null;
 		Season ="";
 		Revenue = 0;
 		HivesBought = 0;
@@ -19,9 +24,10 @@ public class Sales extends BeeKeeper{
 		OperatingExpenses = 0;
 		Other = 0;
 	}
-	public Sales(String season, int revenue, int hivesBought, int jarsBought, int foodBought, int drugsBought,
+	public Sales(LocalDateTime now,String season, int revenue, int hivesBought, int jarsBought, int foodBought, int drugsBought,
 			int operatingExpenses, int other) {
 		super();
+		DateLogged = now;
 		Season = season;
 		Revenue = revenue;
 		HivesBought = hivesBought;
@@ -31,7 +37,12 @@ public class Sales extends BeeKeeper{
 		OperatingExpenses = operatingExpenses;
 		Other = other;
 	}
-	
+	public LocalDateTime getDateLogged() {
+		return DateLogged;
+	}
+	public void setDateLogged(LocalDateTime dateLogged) {
+		DateLogged = dateLogged;
+	}
 	public String getSeason() {
 		return Season;
 	}
