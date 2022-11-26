@@ -9,6 +9,7 @@ public class Users implements Serializable{
     public Users(){
         email="";
         password="";
+        BeeK=null;
     }
     public Users(String email,String password,BeeKeeper BeeK){
         this.email=email;
@@ -64,12 +65,21 @@ public class Users implements Serializable{
             }
         }
         if(EmailCount==0 && PasswordCount==0){
-            System.out.println("Wrong Password and Email!"); 
+            System.out.println(ANSI_RED + "Wrong Password and Email!" + ANSI_RESET); 
         }else if(PasswordCount==0){
-            System.out.println("Wrong Password!");
+            System.out.println(ANSI_RED + "Wrong Password!" + ANSI_RESET);
         }else{
-            System.out.println("Wrong Email!");
+            System.out.println(ANSI_RED + "Wrong Email!" + ANSI_RESET);
         }
         return null;
     }
+    public static final String ANSI_RESET = "\u001B[0m";
+	public static final String ANSI_BLACK = "\u001B[30m";
+	public static final String ANSI_RED = "\u001B[31m";
+	public static final String ANSI_GREEN = "\u001B[32m";
+	public static final String ANSI_YELLOW = "\u001B[33m";
+	public static final String ANSI_BLUE = "\u001B[34m";
+	public static final String ANSI_PURPLE = "\u001B[35m";
+	public static final String ANSI_CYAN = "\u001B[36m";
+	public static final String ANSI_WHITE = "\u001B[37m";
 }

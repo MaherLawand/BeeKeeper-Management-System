@@ -3,7 +3,7 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.HashMap;
 
-public class Customers extends BeeKeeper implements Serializable{
+public class Customers implements Serializable{
 	HashMap <String,Customers> ActiveCustomers = new HashMap();
 	HashMap <String,Customers> BannedCustomers = new HashMap();
 	private String FName;
@@ -61,9 +61,10 @@ public class Customers extends BeeKeeper implements Serializable{
 		if(ActiveCustomers.keySet().contains(email)){
 			System.out.println("Already Registered!");
 		}else if(BannedCustomers.keySet().contains(email)){
-			System.out.println("Customer Banned!");
+			System.out.println("Customer "  + s.getFName() + " " + s.getLName()+ " Banned!");
 		}else{
 			ActiveCustomers.put(email, s);
+			System.out.println("Successfully Added Customer " + s.getFName() + " " + s.getLName());
 		}
 	}
 	public Customers banCustomer(Customers s,String email) {
@@ -72,6 +73,7 @@ public class Customers extends BeeKeeper implements Serializable{
 			BannedCustomers.put(email, s);
 			banned=s;
 			ActiveCustomers.remove(email, s);
+			System.out.println("Successfully Banned Customer " + s.getFName() + " " + s.getLName());
 		}else if(!ActiveCustomers.keySet().contains(email)){
 			System.out.println("Customer Doesnt Exist!");
 		}else{
@@ -106,29 +108,39 @@ public class Customers extends BeeKeeper implements Serializable{
 }
 	
 	public void ListCustomers() {
+		System.out.println(ANSI_YELLOW + "Active Customers:" + ANSI_RESET);
 		for (Customers s : ActiveCustomers.values()) {
-			System.out.println("First Name: " + s.getFName());
-			System.out.println("Last Name: " + s.getLName());
-			System.out.println("Email: " + s.getEmail());
-			System.out.println("Address: " + s.getAddress());
-			System.out.println("Phone Number: " + s.getPhoneNumber());
-			System.out.println("-------------------------------------");
+			System.out.println(ANSI_CYAN + "First Name:" + ANSI_GREEN + " " + s.getFName() + ANSI_RESET);
+			System.out.println(ANSI_CYAN + "Last Name:" + ANSI_GREEN + " " + s.getLName() + ANSI_RESET);
+			System.out.println(ANSI_CYAN + "Email:" + ANSI_GREEN + " " + s.getEmail() + ANSI_RESET);
+			System.out.println(ANSI_CYAN + "Address:" + ANSI_GREEN + " " + s.getAddress() + ANSI_RESET);
+			System.out.println(ANSI_CYAN + "Phone Number:" + ANSI_GREEN + " " + s.getPhoneNumber() + ANSI_RESET);
+			System.out.println(ANSI_YELLOW + "-------------------------------------" + ANSI_RESET);
 			
 		}
 	}
 	public void ListBannedCustomers() {
+		System.out.println(ANSI_YELLOW + "Banned Customers: " + ANSI_RESET);
 		for (Customers s : BannedCustomers.values()) {
-			System.out.println("First Name: " + s.getFName());
-			System.out.println("Last Name: " + s.getLName());
-			System.out.println("Email: " + s.getEmail());
-			System.out.println("Address: " + s.getAddress());
-			System.out.println("Phone Number: " + s.getPhoneNumber());
-			System.out.println("-------------------------------------");
+			System.out.println(ANSI_CYAN + "First Name: " + ANSI_GREEN + " " +  s.getFName() + ANSI_RESET);
+			System.out.println(ANSI_CYAN + "Last Name: " + ANSI_GREEN + " " +  s.getLName() + ANSI_RESET);
+			System.out.println(ANSI_CYAN + "Email: " + ANSI_GREEN + " " + s.getEmail() + ANSI_RESET);
+			System.out.println(ANSI_CYAN + "Address: " + ANSI_GREEN + " " +  s.getAddress() + ANSI_RESET);
+			System.out.println(ANSI_CYAN + "Phone Number: " + ANSI_GREEN + " " + s.getPhoneNumber() + ANSI_RESET);
+			System.out.println(ANSI_YELLOW + "-------------------------------------" + ANSI_RESET);
 			
 		}
 	}
 
-
+	public static final String ANSI_RESET = "\u001B[0m";
+	public static final String ANSI_BLACK = "\u001B[30m";
+	public static final String ANSI_RED = "\u001B[31m";
+	public static final String ANSI_GREEN = "\u001B[32m";
+	public static final String ANSI_YELLOW = "\u001B[33m";
+	public static final String ANSI_BLUE = "\u001B[34m";
+	public static final String ANSI_PURPLE = "\u001B[35m";
+	public static final String ANSI_CYAN = "\u001B[36m";
+	public static final String ANSI_WHITE = "\u001B[37m";
 
 	
 }

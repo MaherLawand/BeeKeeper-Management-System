@@ -1,6 +1,6 @@
 import java.io.Serializable;
 
-public class Hive extends BeeKeeper implements Serializable{
+public class Hive implements Serializable{
     GeneralBees First;
     private int Size;
     private int HiveSerialNb;
@@ -77,8 +77,8 @@ public class Hive extends BeeKeeper implements Serializable{
             current.next=bee;
         }  
         }else {
-        	System.out.println("Number of Bees Exceeded the Hive Capacity!");
-        	System.out.println("--------------------------------------------");
+        	System.out.println(ANSI_RED + "Number of Bees Exceeded the Hive Capacity!" + ANSI_RESET);
+        	System.out.println(ANSI_YELLOW + "--------------------------------------------" + ANSI_RESET);
         }
     }
     public boolean isEmpty() {
@@ -88,11 +88,7 @@ public class Hive extends BeeKeeper implements Serializable{
         return First.TypeOfQueenBee;
     }
     public void addQueenBee(GeneralBees bee){
-        if(isEmpty()) {
-        	First=bee;
-        }else if(isQueenBeeExist()) {
-        	System.out.println("Queen Bee Already exists! Please Use ChangeQueenBee Method!");
-        }
+        	First=bee;     
     }
     public void ChangeQueenBee(GeneralBees bee) {
     	 bee.next=First.next;
@@ -130,23 +126,21 @@ public class Hive extends BeeKeeper implements Serializable{
     	return Honey;	
     }
     public void HiveStatus(){
-        System.out.println("Hive: " + getHiveSerialNb());
-        System.out.println("Size: " + getSize());
-        System.out.println("Medical Condition: " + getMedicalCondition());
-        System.out.println("Number Of Frames: " + getNbOfFrames());
-        System.out.println("Fed: " + isFood());
-        System.out.println("Drugged: " + isDrugs());
-        System.out.println("Percentage of Hive Filled: " + PercentageOfHiveFilled());
-        System.out.println("Hive Efficiency: " + HiveEfficiency());
-        System.out.println("Honey Produced: " + HoneyProduced());
+        System.out.println(ANSI_CYAN + "Hive: " + getHiveSerialNb() + ANSI_RESET);
+        System.out.println(ANSI_CYAN + "Size: " +ANSI_GREEN + getSize() + ANSI_RESET);
+        System.out.println(ANSI_CYAN + "Medical Condition: " +ANSI_GREEN + getMedicalCondition() + ANSI_RESET);
+        System.out.println(ANSI_CYAN + "Number Of Frames: " +ANSI_GREEN + getNbOfFrames() + ANSI_RESET);
+        System.out.println(ANSI_CYAN + "Fed: " +ANSI_GREEN + isFood() + ANSI_RESET);
+        System.out.println(ANSI_CYAN + "Drugged: " +ANSI_GREEN + isDrugs() + ANSI_RESET);
+        System.out.println(ANSI_CYAN + "Percentage of Hive Filled: " +ANSI_GREEN + PercentageOfHiveFilled() + ANSI_RESET);
+        System.out.println(ANSI_CYAN + "Hive Efficiency: " +ANSI_GREEN + HiveEfficiency() + ANSI_RESET);
+        System.out.println(ANSI_CYAN + "Honey Produced: " +ANSI_GREEN + HoneyProduced() + ANSI_RESET);
         GeneralBees BeeCurrent=First;
         while(BeeCurrent!=null){
         	if(BeeCurrent.TypeOfQueenBee) {
-        		System.out.println("Queen Bee: "+ BeeCurrent.TypeOfQueenBee +"\n" + "Egg Laying Rate: " + BeeCurrent.EggLayingRate + "\n" + "LifeSpan: " + BeeCurrent.LifeSpan + "\n" + "Medical Health: " +BeeCurrent.MedicalHealth);
-        		System.out.println("--------------------------------------------");
+        		System.out.println(ANSI_CYAN+ "Queen Bee: "+ ANSI_GREEN + BeeCurrent.TypeOfQueenBee +"\n" + ANSI_CYAN + "Egg Laying Rate: " + ANSI_GREEN + BeeCurrent.EggLayingRate + "\n" + ANSI_CYAN + "LifeSpan: " + ANSI_GREEN + BeeCurrent.LifeSpan + "\n" + ANSI_CYAN +  "Medical Health: " + ANSI_GREEN + BeeCurrent.MedicalHealth + ANSI_RESET);
         	}else {
-        		System.out.println("Type of Bee: "+ BeeCurrent.TypeOfBee +"\n" + "Efficiency of Bee: " + BeeCurrent.EfficiencyOfBee + "\n" + "LifeSpan: " + BeeCurrent.LifeSpan + "\n" + "Estimated Number Of Bees: " +BeeCurrent.EstimatesNbOfBees);
-        		System.out.println("--------------------------------------------");
+        		System.out.println(ANSI_CYAN+ "Type of Bee: "+ ANSI_GREEN + BeeCurrent.TypeOfBee +"\n" + ANSI_CYAN + "Efficiency of Bee: " + ANSI_GREEN + BeeCurrent.EfficiencyOfBee + "\n" + ANSI_CYAN + "LifeSpan: " + ANSI_GREEN + BeeCurrent.LifeSpan + "\n" + ANSI_CYAN + "Estimated Number Of Bees: " + ANSI_GREEN + BeeCurrent.EstimatesNbOfBees + ANSI_RESET);
         	}
             BeeCurrent=BeeCurrent.next;         
         }
@@ -170,7 +164,15 @@ public class Hive extends BeeKeeper implements Serializable{
 		HiveSerialNb = hiveSerialNb;
 	}
     
-    
+    public static final String ANSI_RESET = "\u001B[0m";
+	public static final String ANSI_BLACK = "\u001B[30m";
+	public static final String ANSI_RED = "\u001B[31m";
+	public static final String ANSI_GREEN = "\u001B[32m";
+	public static final String ANSI_YELLOW = "\u001B[33m";
+	public static final String ANSI_BLUE = "\u001B[34m";
+	public static final String ANSI_PURPLE = "\u001B[35m";
+	public static final String ANSI_CYAN = "\u001B[36m";
+	public static final String ANSI_WHITE = "\u001B[37m";
     
     
 }

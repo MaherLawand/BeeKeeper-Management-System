@@ -1,7 +1,7 @@
 import java.io.Serializable;
-import java.sql.Date;
+import java.util.Date;
 
-public class Stock extends BeeKeeper implements Serializable{
+public class Stock implements Serializable{
 	private Date DateLogged;
 	private int TotalNbOfJars;
 	private int JarsFilledWithHoney;
@@ -54,29 +54,39 @@ public class Stock extends BeeKeeper implements Serializable{
 		DrugsUsed = drugsInStock;
 	}
 	public void HoneyInStock() {		
-		 System.out.println(getJarsFilledWithHoney()*0.25 + " L");
+		 System.out.println(ANSI_GREEN + getJarsFilledWithHoney()*0.25 + " L" + ANSI_CYAN + "Honey In Stock" + ANSI_RESET);
 	}
 	public int NbOfEmptyJars() {
 		return getTotalNbOfJars()-getJarsFilledWithHoney();
 	}
 	public void FoodInStock(int n) {
 		// in main n = sales.getFoodBought
+		System.out.print(ANSI_GREEN);
 		System.out.print(n-getFoodUsed());
 	}
 	public void DrugsInStock(int n) {
+		System.out.print(ANSI_GREEN);
 		System.out.print(n-getDrugsUsed());
 	}
 	public int JarsUsed() {
 		return JarsFilledWithHoney;
 		
 	}
-	public void DisplayStock(int m , int n) {
-		System.out.println("On " + getDateLogged() + ": \n In Stock: " + getTotalNbOfJars() + " jars \n" + getJarsFilledWithHoney() + " jars filled with honey \n" + getFoodUsed() + " Food used \n" + getDrugsUsed() + " Drugs Used \n" + JarsUsed() + " Jars Used \n" + NbOfEmptyJars() + " empty jars");
+	public void DisplayStock(int n , int m) {
+		System.out.println(ANSI_CYAN + "On " + ANSI_GREEN + getDateLogged() + ANSI_CYAN + ": \nIn Stock: " + ANSI_GREEN + getTotalNbOfJars() + ANSI_CYAN + " jars \n" + ANSI_GREEN + getJarsFilledWithHoney() + ANSI_CYAN + " jars filled with honey \n" + ANSI_GREEN + getFoodUsed() + ANSI_CYAN +  " Food used \n" + ANSI_GREEN + getDrugsUsed() + ANSI_CYAN + " Drugs Used \n" + ANSI_GREEN +  JarsUsed() + ANSI_CYAN + " Jars Used \n" + ANSI_GREEN + NbOfEmptyJars() + ANSI_CYAN + " empty jars" + ANSI_RESET);
 		FoodInStock(n);
-		System.out.println(" Food in Stock");
+		System.out.println(ANSI_CYAN + " Food in Stock" + ANSI_RESET);
 		DrugsInStock(m);
-		System.out.println(" Drugs in Stock");
+		System.out.println(ANSI_CYAN + " Drugs in Stock" + ANSI_RESET);
 		HoneyInStock();
-	
 	}
+	public static final String ANSI_RESET = "\u001B[0m";
+	public static final String ANSI_BLACK = "\u001B[30m";
+	public static final String ANSI_RED = "\u001B[31m";
+	public static final String ANSI_GREEN = "\u001B[32m";
+	public static final String ANSI_YELLOW = "\u001B[33m";
+	public static final String ANSI_BLUE = "\u001B[34m";
+	public static final String ANSI_PURPLE = "\u001B[35m";
+	public static final String ANSI_CYAN = "\u001B[36m";
+	public static final String ANSI_WHITE = "\u001B[37m";
 }
