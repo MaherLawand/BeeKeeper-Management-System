@@ -49,6 +49,10 @@ public class BeeKeeper implements Serializable {
 	HashMap<Date,Sales> sales = new HashMap();
 	Customers s;
     //Customers
+	 public void addCustomersToBeekeeperUserNoPrint(Customers c){
+			s=c;
+			
+		}
     public void addApiaryToBeekeeperUser(Apiary A){
 		apiary.add(A);
 		System.out.println(ANSI_YELLOW +"Successfully Added Apiary " + ANSI_GREEN + A.getApiarySerialNB() + ANSI_RESET);

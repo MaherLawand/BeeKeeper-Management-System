@@ -476,7 +476,7 @@ public static void main(String[] args) throws IOException, ClassNotFoundExceptio
         String password = console.next();
         BeeKeeper B = new BeeKeeper(FName,LName,PhoneNumber,Address);
         Customers allCustomers=new Customers();
-        B.addCustomersToBeekeeperUser(allCustomers);
+        B.addCustomersToBeekeeperUserNoPrint(allCustomers);
         U.setBeeKeeper(B);
         U.Register(email, password, B);
         Users SignedIn = U.Login(email, password);

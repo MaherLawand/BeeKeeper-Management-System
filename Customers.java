@@ -59,12 +59,12 @@ public class Customers implements Serializable{
 	}
 	public void addCustomer(Customers s,String email) {
 		if(ActiveCustomers.keySet().contains(email)){
-			System.out.println("Already Registered!");
+			System.out.println(ANSI_RED+"Already An Active Customer!!"+ANSI_RESET);
 		}else if(BannedCustomers.keySet().contains(email)){
-			System.out.println("Customer "  + s.getFName() + " " + s.getLName()+ " Banned!");
+			System.out.println(ANSI_RED+"Customer "+ANSI_GREEN  + s.getFName() + " " + s.getLName()+ANSI_RED+ " Banned!"+ANSI_RESET);
 		}else{
 			ActiveCustomers.put(email, s);
-			System.out.println("Successfully Added Customer " + s.getFName() + " " + s.getLName());
+			System.out.println(ANSI_YELLOW+"Successfully Added Customer "+ANSI_GREEN + s.getFName() + " " + s.getLName()+ANSI_RESET);
 		}
 	}
 	public Customers banCustomer(Customers s,String email) {
@@ -73,11 +73,11 @@ public class Customers implements Serializable{
 			BannedCustomers.put(email, s);
 			banned=s;
 			ActiveCustomers.remove(email, s);
-			System.out.println("Successfully Banned Customer " + s.getFName() + " " + s.getLName());
+			System.out.println(ANSI_YELLOW+"Successfully Banned Customer "+ANSI_GREEN + s.getFName() + " " + s.getLName()+ANSI_RESET);
 		}else if(!ActiveCustomers.keySet().contains(email)){
-			System.out.println("Customer Doesnt Exist!");
+			System.out.println(ANSI_RED+"Customer Doesnt Exist!"+ANSI_RESET);
 		}else{
-			System.out.println("Customer Already Banned!");
+			System.out.println(ANSI_RED+"Customer Already Banned!"+ANSI_RESET);
 		}
 		return banned;
 	}
