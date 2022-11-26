@@ -126,7 +126,7 @@ public class Hive implements Serializable{
     	return Honey;	
     }
     public void HiveStatus(){
-        System.out.println(ANSI_CYAN + "Hive: " + getHiveSerialNb() + ANSI_RESET);
+        System.out.println(ANSI_CYAN + "Hive: " + ANSI_GREEN + getHiveSerialNb() + ANSI_RESET);
         System.out.println(ANSI_CYAN + "Size: " +ANSI_GREEN + getSize() + ANSI_RESET);
         System.out.println(ANSI_CYAN + "Medical Condition: " +ANSI_GREEN + getMedicalCondition() + ANSI_RESET);
         System.out.println(ANSI_CYAN + "Number Of Frames: " +ANSI_GREEN + getNbOfFrames() + ANSI_RESET);
