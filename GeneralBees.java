@@ -1,5 +1,7 @@
 import java.io.Serializable;
 
+// polymorph!!
+
 public class GeneralBees implements Serializable {
     protected boolean TypeOfQueenBee;
 	protected int EggLayingRate;

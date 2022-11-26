@@ -109,11 +109,11 @@ public static void main(String[] args) throws IOException, ClassNotFoundExceptio
                                 }
                                 System.out.println(ANSI_YELLOW + "BEES:"  + ANSI_RESET);
                                 System.out.println(ANSI_YELLOW + "--------"  + ANSI_RESET);
-                                System.out.println(ANSI_CYAN + "Type Of Bee:"  + ANSI_RESET);
+                                System.out.println(ANSI_CYAN + "Type Of Bee 'Species' :"  + ANSI_RESET);
                                 String BeeType=console.next();
                                 System.out.println(ANSI_CYAN + "Estimated Number Of Bees:"  + ANSI_RESET);
                                 int EstimatesNbOfBees=console.nextInt();
-                                System.out.println(ANSI_CYAN + "Life Span:(days)" + ANSI_RESET);
+                                System.out.println(ANSI_CYAN + "Life Span(days) :" + ANSI_RESET);
                                 int LifeSpan=console.nextInt();
                                 System.out.println(ANSI_CYAN + "Efficiency Of Bees:"  + ANSI_RESET);
                                 int EfficiencyOfBee=console.nextInt();
@@ -124,9 +124,9 @@ public static void main(String[] args) throws IOException, ClassNotFoundExceptio
                                 boolean QueenBeeType=true;
                                 System.out.println(ANSI_CYAN + "Egg Laying Rate:"  + ANSI_RESET);
                                 int QueenBeeEggLayingRate=console.nextInt();
-                                System.out.println(ANSI_CYAN + "Life Span:(years)"  + ANSI_RESET);
+                                System.out.println(ANSI_CYAN + "Life Span(years) :"  + ANSI_RESET);
                                 int QueenBeeLifeSpan=console.nextInt();
-                                System.out.println(ANSI_CYAN + "Medical Health:"  + ANSI_RESET);
+                                System.out.println(ANSI_CYAN + "Medical Health 'Description' "  + ANSI_RESET);
                                 String QueenBeeMedicalHealth=console.next();
                                 GeneralBees newQueenBee = new QueenBee(QueenBeeType, QueenBeeEggLayingRate, QueenBeeLifeSpan, QueenBeeMedicalHealth);
                                 newHive.addBee(newBee);
@@ -367,7 +367,7 @@ public static void main(String[] args) throws IOException, ClassNotFoundExceptio
                                 int FoodUsed; 
                                 int DrugsUsed;
                                 if(CheckSalesByDate==null){
-                                    System.out.println(ANSI_CYAN + "Enter Season:(Spring,Summer,Fall,Winter)" + ANSI_RESET);
+                                    System.out.println(ANSI_CYAN + "Enter Season (Spring,Summer) :" + ANSI_RESET);
                                     Season=console.next();
                                     System.out.println(ANSI_CYAN + "Enter Revenue: " + ANSI_RESET);
                                     Revenue = console.nextInt();
@@ -412,7 +412,7 @@ public static void main(String[] args) throws IOException, ClassNotFoundExceptio
                                 date1=new SimpleDateFormat("dd/MM/yyyy").parse(Date);
                                 Sales EditSales=SignedIn.getBeeKeeper().SearchSalesByDate(date1);
                                 if(EditSales!=null){
-                                    System.out.println(ANSI_CYAN + "Enter Season:(Spring,Summer,Fall,Winter)" + ANSI_RESET);
+                                    System.out.println(ANSI_CYAN + "Enter Season (Spring,Summer) :" + ANSI_RESET);
                                     Season=console.next();
                                     System.out.println(ANSI_CYAN + "Enter Revenue: " + ANSI_RESET);
                                     Revenue = console.nextInt();
@@ -497,7 +497,7 @@ public static void main(String[] args) throws IOException, ClassNotFoundExceptio
                         bool=false;
                         break;
                     default:
-                        System.out.println(ANSI_RED + "Please ReEnter a Valid Number!" + ANSI_RESET);
+                        System.out.println(ANSI_RED + "Please Input a Valid Number!" + ANSI_RESET);
                         break;
                     }
                     

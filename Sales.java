@@ -144,18 +144,18 @@ public class Sales implements Serializable{
 	public void ListSales(){
 		System.out.println(ANSI_CYAN + "Date: " + ANSI_GREEN + getDateLogged() + ANSI_RESET);
 		System.out.println(ANSI_CYAN + "Season: " + ANSI_GREEN + getSeason() + ANSI_RESET);
-		System.out.println(ANSI_CYAN + "Revenue: " + ANSI_GREEN + getRevenue() + ANSI_RESET);
+		System.out.println(ANSI_CYAN + "Revenue: " + ANSI_GREEN + getRevenue()+" $" + ANSI_RESET);
 		System.out.println(ANSI_CYAN + "Hives Bought: " + ANSI_GREEN + getHivesBought() + ANSI_RESET);
 		System.out.println(ANSI_CYAN + "Jars Bought: " + ANSI_GREEN + getJarsBought() + ANSI_RESET);
 		System.out.println(ANSI_CYAN + "Food Bought: " + ANSI_GREEN + getFoodBought() + ANSI_RESET);
 		System.out.println(ANSI_CYAN + "Drugs Bought: " + ANSI_GREEN + getDrugsBought() + ANSI_RESET);
-		System.out.println(ANSI_CYAN + "Operating Expenses: " + ANSI_GREEN + getOperatingExpenses() + ANSI_RESET);
-		System.out.println(ANSI_CYAN + "Other Expenses: " + ANSI_GREEN + getOther() + ANSI_RESET);
-		System.out.println(ANSI_CYAN + "Net Profit: " + ANSI_GREEN + NetProfit() + ANSI_RESET);
-		System.out.println(ANSI_CYAN + "Total Cost: " + ANSI_GREEN + TotalCost() + ANSI_RESET);
+		System.out.println(ANSI_CYAN + "Operating Expenses: " + ANSI_GREEN + getOperatingExpenses() +" $"+ ANSI_RESET);
+		System.out.println(ANSI_CYAN + "Other Expenses: " + ANSI_GREEN + getOther() +" $"+ ANSI_RESET);
+		System.out.println(ANSI_CYAN + "Net Profit: " + ANSI_GREEN + NetProfit()+" $" + ANSI_RESET);
+		System.out.println(ANSI_CYAN + "Total Cost: " + ANSI_GREEN + TotalCost()+" $" + ANSI_RESET);
 		HighestExpense();
 		System.out.println(ANSI_CYAN + "Jars Sold: " + ANSI_GREEN + JarsSold() + ANSI_RESET);
-		System.out.println(ANSI_CYAN + "Honey Produced: " + ANSI_GREEN + HoneyProduced() + ANSI_RESET);
+		System.out.println(ANSI_CYAN + "Honey Produced: " + ANSI_GREEN + HoneyProduced() +" L"+ ANSI_RESET);
 	}
 	public static final String ANSI_RESET = "\u001B[0m";
 	public static final String ANSI_BLACK = "\u001B[30m";

@@ -128,13 +128,13 @@ public class Hive implements Serializable{
     public void HiveStatus(){
         System.out.println(ANSI_CYAN + "Hive: " + ANSI_GREEN + getHiveSerialNb() + ANSI_RESET);
         System.out.println(ANSI_CYAN + "Size: " +ANSI_GREEN + getSize() + ANSI_RESET);
-        System.out.println(ANSI_CYAN + "Medical Condition: " +ANSI_GREEN + getMedicalCondition() + ANSI_RESET);
+        System.out.println(ANSI_CYAN + "Medical Condition (1-10) : " +ANSI_GREEN + getMedicalCondition() + ANSI_RESET);
         System.out.println(ANSI_CYAN + "Number Of Frames: " +ANSI_GREEN + getNbOfFrames() + ANSI_RESET);
         System.out.println(ANSI_CYAN + "Fed: " +ANSI_GREEN + isFood() + ANSI_RESET);
         System.out.println(ANSI_CYAN + "Drugged: " +ANSI_GREEN + isDrugs() + ANSI_RESET);
-        System.out.println(ANSI_CYAN + "Percentage of Hive Filled: " +ANSI_GREEN + PercentageOfHiveFilled() + ANSI_RESET);
-        System.out.println(ANSI_CYAN + "Hive Efficiency: " +ANSI_GREEN + HiveEfficiency() + ANSI_RESET);
-        System.out.println(ANSI_CYAN + "Honey Produced: " +ANSI_GREEN + HoneyProduced() + ANSI_RESET);
+        System.out.println(ANSI_CYAN + "Percentage of Hive Filled % : " +ANSI_GREEN + PercentageOfHiveFilled() +" %" + ANSI_RESET);
+        System.out.println(ANSI_CYAN + "Hive Efficiency : " +ANSI_GREEN + HiveEfficiency() + ANSI_RESET);
+        System.out.println(ANSI_CYAN + "Honey Produced : " +ANSI_GREEN + HoneyProduced()+" L" + ANSI_RESET);
         GeneralBees BeeCurrent=First;
         while(BeeCurrent!=null){
         	if(BeeCurrent.TypeOfQueenBee) {
