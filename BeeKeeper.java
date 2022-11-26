@@ -46,7 +46,7 @@ public class BeeKeeper implements Serializable {
 	}
 	ArrayList<Apiary> apiary = new ArrayList<Apiary>();
 	ArrayList<Stock> stock = new ArrayList<Stock>();
-	HashMap<Date,Sales> sales = new HashMap();
+	HashMap<Date,Sales> sales = new HashMap<>();
 	Customers s;
     //Customers
 	 public void addCustomersToBeekeeperUserNoPrint(Customers c){

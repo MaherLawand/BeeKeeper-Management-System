@@ -1,6 +1,5 @@
-import java.io.Serializable;
 
-public class QueenBee extends GeneralBees implements Serializable{
+public class QueenBee extends GeneralBees{
 	public GeneralBees next;
 	public QueenBee() {
 		TypeOfQueenBee=false;

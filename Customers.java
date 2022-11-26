@@ -4,8 +4,8 @@ import java.util.Comparator;
 import java.util.HashMap;
 
 public class Customers implements Serializable{
-	HashMap <String,Customers> ActiveCustomers = new HashMap();
-	HashMap <String,Customers> BannedCustomers = new HashMap();
+	HashMap <String,Customers> ActiveCustomers = new HashMap<>();
+	HashMap <String,Customers> BannedCustomers = new HashMap<>();
 	private String FName;
 	private String LName;
 	private String email;
